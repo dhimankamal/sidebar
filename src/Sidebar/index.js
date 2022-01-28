@@ -62,6 +62,7 @@ const Button = styled.button`
 `
 
 const SidebarContainer = styled.div`
+  
   background-color: var(--black);
 
   height: 100vh;
@@ -75,6 +76,7 @@ const SidebarContainer = styled.div`
   position: absolute;
   top: 0;
   z-index: -1;
+  
 `
 
 const Logo = styled.div`
@@ -176,7 +178,7 @@ const Sidebar = () => {
       {(width<998)?<Button clicked={click} onClick={() => handleClick()}>
         Click
       </Button>:""}
-      <SidebarContainer>
+      {(!click && width<500)?"":<SidebarContainer >
         <SlickBar clicked={click}>
           <Logo>
             <img src={logo} alt='logo' />
@@ -206,7 +208,8 @@ const Sidebar = () => {
             <Text clicked={click}>Empty</Text>
           </Item>
         </SlickBar>
-      </SidebarContainer>
+      </SidebarContainer>}
+      
     </Container>
   )
 }

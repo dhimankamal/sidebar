@@ -115,6 +115,7 @@ const SlickBar = styled.ul`
   transition: all 0.5s ease;
   top: 0;
   height: 100vh;
+  overflow-y: scroll;
   z-index: -1;
 `
 

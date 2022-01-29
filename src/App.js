@@ -8,13 +8,14 @@ import Projects from "./Pages/Projects";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
 
+
+const pagewidth = window.innerWidth;
 const Pages = styled.div`
 
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow:scroll;
+ padding-left:${ (pagewidth > 998) ? '18rem' : '4rem'};
   
 
   h1 {
@@ -24,6 +25,8 @@ const Pages = styled.div`
     -webkit-text-fill-color: transparent;
   }
 `;
+
+
 
 function App() {
   const location = useLocation();

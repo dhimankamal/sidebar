@@ -62,8 +62,7 @@ const Button = styled.button`
 `
 
 const SidebarContainer = styled.div`
-  
-  background-color: var(--black);
+  background-color: red;
 
   height: 100vh;
 
@@ -71,12 +70,20 @@ const SidebarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
+  width:4rem;
   position: relative;
   position: absolute;
   top: 0;
   z-index: -1;
-  
+   padding-top:20rem;
+  p{
+    color:white;
+    transform: rotate(-90deg);
+    font-size:28px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+   
+  }
 `
 
 const Logo = styled.div`
@@ -96,17 +103,17 @@ const SlickBar = styled.ul`
   flex-direction: column;
   align-items: center;
   background-color: var(--black);
-
-  padding: 2rem 0;
+  padding: 6rem 0 0 3rem;;
 
   position: absolute;
 
   left: 0;
 
-  width: ${props => (props.clicked ? '12rem' : '3.5rem')};
+  width: ${props => (props.clicked ? '15rem' : '3rem')};
   transition: all 0.5s ease;
-
+top:0;
   height: 100vh;
+  z-index: -1;
 `
 
 const Item = styled(NavLink)`
@@ -160,56 +167,48 @@ const Sidebar = () => {
   const updateDimensions = () => {
     const width = window.innerWidth
     setWindowWidth(width)
-    if(width < 998){
+    if (width < 998) {
       setClick()
-       
-    }
-    else{
+    } else {
       setClick(true)
     }
-    
   }
 
   console.log(width)
 
   return (
     <Container>
-  
-      {(width<998)?<Button clicked={click} onClick={() => handleClick()}>
-        Click
-      </Button>:""}
-      {(!click && width<500)?"":<SidebarContainer >
-        <SlickBar clicked={click}>
-          <Logo>
-            <img src={logo} alt='logo' />
-          </Logo>
-          <Item exact activeClassName='active' to='/'>
-            <img src={Home} alt='Home' />
-            <Text clicked={click}>Home</Text>
-          </Item>
-          <Item activeClassName='active' to='/team'>
-            <img src={Team} alt='Team' />
-            <Text clicked={click}>Team</Text>
-          </Item>
-          <Item activeClassName='active' to='/calender'>
-            <img src={Calender} alt='Calender' />
-            <Text clicked={click}>Calender</Text>
-          </Item>
-          <Item activeClassName='active' to='/documents'>
-            <img src={Documents} alt='Documents' />
-            <Text clicked={click}>Documents</Text>
-          </Item>
-          <Item activeClassName='active' to='/projects'>
-            <img src={Projects} alt='Projects' />
-            <Text clicked={click}>Projects</Text>
-          </Item>
-          <Item exact activeClassName='active' to='/empty'>
-            <img src={Projects} />
-            <Text clicked={click}>Empty</Text>
-          </Item>
-        </SlickBar>
-      </SidebarContainer>}
-      
+      {width < 998 ? (
+        <Button clicked={click} onClick={() => handleClick()}>
+          Click
+        </Button>
+      ) : (
+        ''
+      )}
+    
+      <SlickBar clicked={click}>
+        <Item exact activeClassName='active' to='/'>
+          <Text clicked={click}>Home</Text>
+        </Item>
+        <Item activeClassName='active' to='/team'>
+          <Text clicked={click}>Team</Text>
+        </Item>
+        <Item activeClassName='active' to='/calender'>
+          <Text clicked={click}>Calender</Text>
+        </Item>
+        <Item activeClassName='active' to='/documents'>
+          <Text clicked={click}>Documents</Text>
+        </Item>
+        <Item activeClassName='active' to='/projects'>
+          <Text clicked={click}>Projects</Text>
+        </Item>
+        <Item exact activeClassName='active' to='/empty'>
+          <Text clicked={click}>Empty</Text>
+        </Item>
+      </SlickBar>
+      <SidebarContainer>
+        <p> Java</p>
+      </SidebarContainer>
     </Container>
   )
 }

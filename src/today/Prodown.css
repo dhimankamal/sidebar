@@ -1,0 +1,19 @@
+*{margin:  0; padding: 0;}
+.main-footer
+{
+  
+    color: rgb(255, 255, 255);
+ background-color:#16369C;
+padding-top: 3em;
+position: relative;
+bottom: 0;
+width: 100%;
+z-index: -1;
+
+}
+
+.list-unstyled.li
+{
+    font-size: 25px;
+    font-style: 'Acme'
+}

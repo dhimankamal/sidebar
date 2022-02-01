@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import logo from '../logo.svg';
+
 
 //All the svg files
-import logo from '../assets/logo.svg'
-
 
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
@@ -22,7 +22,7 @@ const Container = styled.div`
 `
 
 const Button = styled.button`
-  background-color: #09090c;
+  background-color:#09090c;
   border: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -35,7 +35,7 @@ const Button = styled.button`
   align-items: center;
 
   position: relative;
-
+ z-index:20;
   &::before,
   &::after {
     content: '';
@@ -70,7 +70,7 @@ const SidebarContainer = styled.div`
   position: relative;
   position: absolute;
   top: 0;
-  z-index: 20;
+  z-index: 2;
   border-radius: 0 100px 0 0;
   top: 4rem;
   p {
@@ -88,7 +88,6 @@ const Logo = styled.div`
   top: 6rem;
   left: 0.5rem;
   z-index: 3;
-
   img {
     width: 100%;
     height: auto;
@@ -113,7 +112,7 @@ const SlickBar = styled.ul`
   top: 0;
   height: 100vh;
   overflow-y: scroll;
-  z-index: 10;
+  z-index: 1;
 `
 
 const Item = styled(NavLink)`
@@ -207,7 +206,7 @@ const Sidebar = () => {
         </Item>
       </SlickBar>
       <Logo onClick={() => handleClick()}>
-        <img src={logo} alt='logo' />
+     
       </Logo>
       <SidebarContainer>
         <p> Java</p>

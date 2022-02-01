@@ -1,22 +1,24 @@
-import { Route, Switch, useLocation } from "react-router";
-import Sidebar from "./Sidebar";
-import Home from "./Pages/Home";
-import Team from "./Pages/Team";
-import Calender from "./Pages/Calender";
-import Documents from "./Pages/Documents";
-import Projects from "./Pages/Projects";
-import styled from "styled-components";
-import { AnimatePresence } from "framer-motion";
+import { Route, Switch, useLocation } from 'react-router'
+import Navbar from './today/Navbar';
 
 
-const pagewidth = window.innerWidth;
+import Sidebar from './Sidebar'
+import Home from './Pages/Home'
+import Team from './Pages/Team'
+import Calender from './Pages/Calender'
+import Documents from './Pages/Documents'
+import Projects from './Pages/Projects'
+import styled from 'styled-components'
+import { AnimatePresence } from 'framer-motion'
+import Jpbasic from './today/Jpbasic';
+import Prodown from './today/Prodown';
+
+const pagewidth = window.innerWidth
 const Pages = styled.div`
-
   width: 100vw;
   height: 100vh;
-  overflow:scroll;
- padding-left:${ (pagewidth > 998) ? '18rem' : '4rem'};
-  
+  overflow: scroll;
+  padding-left: ${pagewidth > 998 ? '18rem' : '4rem'};
 
   h1 {
     font-size: calc(2rem + 2vw);
@@ -24,16 +26,14 @@ const Pages = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-`;
+`
 
-
-
-function App() {
-  const location = useLocation();
+function App () {
+  const location = useLocation()
   return (
     <>
-      <Sidebar />
-      <Pages>
+      {/*  <Sidebar />
+     <Pages>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route exact path="/" component={Home} />
@@ -43,9 +43,13 @@ function App() {
             <Route path="/projects" component={Projects} />
           </Switch>
         </AnimatePresence>
-      </Pages>
+      </Pages> */}
+
+      <Navbar />
+      <Jpbasic />
+      <Prodown />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
